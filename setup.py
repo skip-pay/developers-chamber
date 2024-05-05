@@ -28,6 +28,7 @@ setup(
         'slack-sdk==3.21.3',
         'TogglPy==0.1.2',
         'unidecode==1.1.1',
+        'mypy>=1.10.0',
     ],
     entry_points={'console_scripts': [
         'pydev=developers_chamber.bin.pydev:cli',
