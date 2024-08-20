@@ -1,6 +1,8 @@
+import fileinput
 import os
 
 import click
+from slack_sdk import WebClient
 
 from developers_chamber.scripts import cli
 from developers_chamber.slack_utils import \
@@ -31,3 +33,21 @@ def upload_new_migrations(token, channel, target_branch, migrations_pattern):
     """
     upload_new_migration_func(token, channel, target_branch, migrations_pattern)
     click.echo('Done')
+
+
+@slack.command()
+@click.option('--token', help='Slack bot token',
+              type=str, required=True, default=slack_bot_token)
+@click.option('--channel', help='Channel name where to send input to',
+              type=str, required=True)
+def gateway(token, channel):
+    """
+    Send message to selected slack channel.
+    """
+    if input_text := "".join(fileinput.input("-")):
+        WebClient(token=token).chat_postMessage(
+            channel=channel,
+            text=input_text,
+            mrkdwn=True,
+            link_names=True,
+        )
