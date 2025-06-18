@@ -18,7 +18,8 @@ RUN apk update && \
 	py3-cryptography \
 	py3-pip \
 	python3 \
-	python3-dev
+	python3-dev \
+	uv
 
 RUN pip install --upgrade --break-system-packages --no-cache \
 	awscli \
