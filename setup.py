@@ -19,7 +19,7 @@ setup(
         'coloredlogs==10.0',
         'gitpython==3.1.30',
         'isort>=5.12.0',
-        'jira==2.0.0',
+        'jira==3.10.5',
         'oauthlib==3.1.0',
         'pip-tools==6.13.0',
         'python-dotenv==0.14.0',
